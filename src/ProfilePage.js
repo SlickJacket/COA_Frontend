@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
 class ProfilePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state= {}
   render() {
-    return <div>Profile Page</div>;
+    // console.log(localStorage.email)
+    return <div><h1>Profile Page</h1>
+    <h2>{this.props.email}</h2></div>;
   }
 }
 

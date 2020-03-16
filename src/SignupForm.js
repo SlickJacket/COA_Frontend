@@ -15,20 +15,22 @@ class SignupForm extends Component {
       body: JSON.stringify({
         first_name: "sylvia",
         last_name: "woods",
-        email: "sylviawoods38@gmail.com",
+        email: "SyLvIawOOds29@gmail.com",
         password: "whatscooking",
         bio: "This is a sample bio."
       })
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data.token);
         if (!data.errors) {
-          localStorage.token = data.token;
+          localStorage.token = data.jwt;
           console.log(localStorage.token);
           console.log(data.user);
           localStorage.email = data.user.email;
           localStorage.id = data.user.id;
+          console.log(localStorage.email)
+          console.log(localStorage.id)
           this.props.getProfile();
           this.props.history.push("/profile");
         } else {
