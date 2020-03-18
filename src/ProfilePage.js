@@ -11,10 +11,14 @@ class ProfilePage extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Profile Page</h1>
-        <h2>{this.props.email}</h2>
-        <button onClick={this.handleClick} />
+      <div className="profilePageContainer">
+        <div className="profileMainInfo">Profile main info</div>
+        <div className="projectVideos">project videos</div>
+        <div className="projectGallery">project gallery</div>
+        <div className="posts">posts</div>
+        <div>
+        <button className="logout-button" onClick={this.handleClick} />
+        </div>
       </div>
     );
   }

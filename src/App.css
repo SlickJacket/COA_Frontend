@@ -1,15 +1,16 @@
 html, body {
   height: 100%;
-}
+} */
 
 body {
   margin: 0;
 }
 
+/* SignupForm start */
 .signupContainer {
   margin: auto;
-  max-width: 40%;
-  background-color: red;
+  max-width: 30%;
+  border: 1px solid black;
 }
 
 .signupForm {
@@ -17,7 +18,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
+  
   
 }
 
@@ -26,11 +28,57 @@ input:focus, input:focus{
 }
 
 label {
-  font-size: 30px;
-  padding: 5px;
+  font-size: 20px;
+  /* padding: 5px; */
 }
 
 input {
   width: 50%;
   margin-bottom: 2%;
 }
+
+/* End SignupForm */
+
+/* ProfilePage Jeweler's view start */
+
+.profilePageContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  width: 70%;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: red;
+  margin: auto;
+}
+
+.profilePageContainer > div {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.profileMainInfo{
+  height: 200px;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.projectVideos {
+  height: 10px;
+  width: 54px;
+  border: 1px solid black;
+}
+
+.projectGallery {
+  height: 14px;
+  width: 54px;
+  border: 1px solid black;
+}
+
+.posts {
+  height: 50px;
+  width: 54px;
+  border: 1px solid black;
+}
+
+/* End ProfilePage Jeweler's view */
