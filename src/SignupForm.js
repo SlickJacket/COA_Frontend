@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
 class SignupForm extends Component {
-  state = {};
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    password: ""
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -10,27 +16,21 @@ class SignupForm extends Component {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-        // Authorization: `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({
-        first_name: "sylvia",
-        last_name: "woods",
-        email: "SyLvIawOOds29@gmail.com",
-        password: "whatscooking",
-        bio: "This is a sample bio."
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        phone_number: this.state.phoneNumber,
+        email: this.state.email,
+        password: this.state.password
       })
     })
       .then(res => res.json())
       .then(data => {
-        // console.log(data.token);
         if (!data.errors) {
           localStorage.token = data.jwt;
-          console.log(localStorage.token);
-          console.log(data.user);
           localStorage.email = data.user.email;
           localStorage.id = data.user.id;
-          console.log(localStorage.email)
-          console.log(localStorage.id)
           this.props.getProfile();
           this.props.history.push("/profile");
         } else {
@@ -39,20 +39,65 @@ class SignupForm extends Component {
       });
   };
 
+  handleFirstName = e => {
+    e.preventDefault();
+    this.setState({ firstName: e.target.value });
+  };
+
+  handleLastName = e => {
+    e.preventDefault();
+    this.setState({ lastName: e.target.value });
+  };
+
+  handleEmail = e => {
+    e.preventDefault();
+    this.setState({ email: e.target.value });
+  };
+
+  handlePhoneNumber = e => {
+    e.preventDefault();
+    this.setState({ phoneNumber: e.target.value });
+  };
+
+  handlePassword = e => {
+    e.preventDefault();
+    this.setState({ password: e.target.value });
+  };
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Email:
-            <input type="text" name="email" />
-          </label>
-          <label>
-            Password:
-            <input type="password" name="password" />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+      <div className="signupPageContainer">
+        <div className="signupContainer">
+          <form className="signupForm" onSubmit={this.handleSubmit}>
+            <label>First Name:</label>
+            <input
+              type="text"
+              name="first name"
+              onChange={this.handleFirstName}
+            />
+            <label>Last Name:</label>
+            <input
+              type="text"
+              name="last name"
+              onChange={this.handleLastName}
+            />
+            <label>Email:</label>
+            <input type="text" name="email" onChange={this.handleEmail} />
+            <label>Phone Number:</label>
+            <input
+              type="text"
+              name="phone number"
+              onChange={this.handlePhoneNumber}
+            />
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              onChange={this.handlePassword}
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
       </div>
     );
   }

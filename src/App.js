@@ -16,26 +16,26 @@ class App extends Component {
     userId: ""
   };
 
-  componentDidMount() {
-    if (localStorage.token) {
-      fetch("http://localhost:3000/profile", {
-        headers: {
-          Authorization: `Bearer ${localStorage.token}`
-        }
-      })
-        .then(res => res.json())
-        .then(user =>
-          this.setState({
-            email: user.email,
-            firstName: user.first_name,
-            lastName: user.last_name,
-            userId: user.id
-          })
-        );
-    } else {
-      this.props.history.push("/loginsignup");
-    }
-  }
+  // componentDidMount() {
+  //   if (localStorage.token) {
+  //     fetch("http://localhost:3000/profile", {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.token}`
+  //       }
+  //     })
+  //       .then(res => res.json())
+  //       .then(user =>
+  //         this.setState({
+  //           email: user.email,
+  //           firstName: user.first_name,
+  //           lastName: user.last_name,
+  //           userId: user.id
+  //         })
+  //       );
+  //   } else {
+  //     this.props.history.push("/loginsignup");
+  //   }
+  // }
 
   getProfile = () => {
     fetch("http://localhost:3000/profile", {
@@ -56,7 +56,6 @@ class App extends Component {
   };
   render() {
     return (
-      
       <Switch>
         <Route
           path={"/profile"}
